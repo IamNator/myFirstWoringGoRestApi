@@ -35,7 +35,8 @@ func main() {
 	myRouter := mux.NewRouter()
 	myRouter.HandleFunc("/api/books", mybook1.getBooks).Methods("GET")
 
-	http.ListenAndServe(":8080", myRouter)
+	fmt.Println("Server running on localhost:8080...")
+	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
 
 func (book *Book) getBooks(res http.ResponseWriter, req *http.Request) {
